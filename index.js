@@ -1,6 +1,7 @@
 var hourglass = 0
 var tally = 0
 presentChallenge = 0
+var commenceBtn = document.getElementById("commence-btn");
 
 var hourglassFunction = () => {
     document.getElementById('hourglass').innerHTML = `${hourglass}`
@@ -66,7 +67,7 @@ var revealChallenge = () => {
 
 var revertHourglass
 
-document.getElementById("commence").addEventListener(`click`), event => {
+document.getElementById("commence-btn").addEventListener(`click`), event => {
     document.getElementById(`challOpt`).classList.remove(`reveal`)
     revertHourglass = setInterval(hourglassFunction, 1000)
     revealChallenge()
@@ -98,3 +99,5 @@ document.addEventListener('click', event => {
     }
 
 })
+
+beginBtn.onclick = beginQuiz;
