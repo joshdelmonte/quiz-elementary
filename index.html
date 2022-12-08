@@ -11,22 +11,36 @@
 </head>
 
 <body>
-    <div class="container" id="toDa">
-        <div class="row">
-            <div class="col s12">
-                <h1>~Today's Quiz~</h1>
-                <div id="tally">0</div>
-                <div id="hourglass">45</div>
-            </div>
-            <div id="challOpt" class="row reveal"></div>
-            <div id="questionsDiv" class="col s12 m6">Challenges</div>
-            <div id="answersDiv" class="col s12 m6">Choices</div>
+    <div id="tally">0</div>
+    <div id="hourglass">45</div>
+
+    <div class="container" id="todo">
+         <!-- start challenge section -->
+        <div id="commence-challenge" class="commence">
+            <h1>~Today's Quiz~</h1>
+            <p>A easy test to guage your coding knowledge</p>
             <button id="commence-btn" class="waves-effect waves-light btn">Commence!</button>
+        </div>
+        <!-- questions section -->
+        <div id="challenges" class="hidden">
+            <h1 id="challenges-header"></h1>
+            <div id="choicesDiv" class="col s12 m6"></div>
+        </div>
+        <!-- end challenge section -->
+        <div id="end-challenge" class="hidden">
+            <h1>Challenge Complete!</h1>
+            <p>
+                You're Challenge Score is: 
+                <span id="challenge-tally"></span>
+            </p>
+            <button id="submit-btn" class="waves-effect waves-light btn">Submit</button>
+        </div>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>'/index.js'</script>
+    <script src='/js/logic.js'></script>
+    <script src='/js/questions.js'></script>
 </body>
 
 </html>

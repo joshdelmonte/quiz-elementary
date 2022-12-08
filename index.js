@@ -8,7 +8,7 @@ var hourglassFunction = () => {
     hourglass -= 2
 
     if (hourglass === 0) {
-        document.getElementById(`toDa`).innerHTML = `<h3>~Our time is up!~</h3>`
+        document.getElementById(`todo`).innerHTML = `<h3>~Our time is up!~</h3>`
     }
 }
 var revealTally = () => {
@@ -41,26 +41,26 @@ var revealChallenge = () => {
     document.getElementById('choicesDiv').innerHTML = `
                 <p 
                 class="choice"
-                data-choice='${challenges[presentChallenge].choice[0]}'
-                data-truth='${challenges[presentChallenge].truth}'
+                data-choice='${challenges[presentChallenge].choices[0]}'
+                data-truth='${challenges[presentChallenge].answer}'
                 >
                 A.)${challenges[presentChallenge].choice[0]}
                 </p>
                 <p 
                 class='choice'
-                data-choice='${challenges[presentChallenge].choice[1]}'
+                data-choice='${challenges[presentChallenge].choices[1]}'
                 >
                 B.)${challenges[presentChallenge].choice[1]}
                 </p>
                 <p class='choice'
-                data-choice='${challenges[presentChallenge].choice[2]}'
+                data-choice='${challenges[presentChallenge].choices[2]}'
                 >
                 C.)${challenges[presentChallenge].choice[2]}
                 </p>
                 <p class='choice'
-                data-choice='${challenges[presentChallenge].choice[3]}'
+                data-choice='${challenges[presentChallenge].choices[3]}'
                 >
-                D.)${challenges[presentChallenge].choice[3]}
+                D.)${challenges[presentChallenge].choices[3]}
                 </p>
                 `
 }
@@ -77,8 +77,8 @@ document.getElementById("commence-btn").addEventListener(`click`), event => {
 document.addEventListener('click', event => {
     if (event.target.classList.contains('choice')) {
         console.log(event.target.dataset.choice)
-        console.log(event.target.dataset.truth)
-        if (event.target.dataset.choice === event.target.dataset.truth) {
+        console.log(event.target.dataset.answer)
+        if (event.target.dataset.choice === event.target.dataset.answer) {
             console.log(`Correct! [Oeuf! 0]`)
             presentChallenge += 1
             hourglass += 2
