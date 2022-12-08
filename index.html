@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <div id="tally">0</div>
-    <div id="hourglass">45</div>
+    <div class="tally">Tally: <span id="tally">0</span></div>
+    <div class="hourglass">Hour Glass: <span id="hourglass">0</span></div>
 
     <div class="container" id="todo">
          <!-- start challenge section -->
@@ -24,8 +24,9 @@
         <!-- questions section -->
         <div id="challenges" class="hidden">
             <h1 id="challenges-header"></h1>
-            <div id="choicesDiv" class="col s12 m6"></div>
-        </div>
+            <h3 id="challenge-div"></h3>
+            <div id="choices-div" class="col s12 m6"></div>
+         </div>
         <!-- end challenge section -->
         <div id="end-challenge" class="hidden">
             <h1>Challenge Complete!</h1>
@@ -39,8 +40,8 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src='/js/logic.js'></script>
-    <script src='/js/questions.js'></script>
+    <script src="./js/logic.js"></script>
+    <script src="./js/questions.js"></script>
 </body>
 
 </html>
