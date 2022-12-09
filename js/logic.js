@@ -1,13 +1,14 @@
 //quiz variables
 var presentChallengeIndex = 0;
 var counterId;
-var challengeCounter = challenges.length;
+var time = challenges.length * 10;
 
 
 var challengesEl = document.getElementById(`challenges`);
 var choicesEl = document.getElementById(`choices`);
 var submitEl = document.getElementById(`submit-btn`);
 var commenceBtn = document.getElementById("commence-btn");
+var counterEl = document.getElementById('hourglass')
 
 
 var hourglass = 0;
@@ -27,11 +28,13 @@ function commenceChallenge() {
     challengesEl.removeAttribute('class');
 
     //start hourglass
-    // counterId = setInterval(hourglassFunction, 1000);
-    // counterId.textContent = hourglass;
+    counterId = setInterval(hourglassFunction, 1500);
+    counterId.textContent = hourglass;
 
     readChallenges();
 }
+
+
 //GETTING THE QUESTIONS FROM questions.js FUNCTION
 function readChallenges() {
     //get challenges from array
@@ -43,93 +46,92 @@ function readChallenges() {
     choicesEl.innerHTML = "";
 
     //loop over challenges
-    presentChallenge.challenge.forEach(function(challenge, index) {
+    presentChallenge.choices.forEach(function(challenge, index) {
         var challengeOption = document.createElement("button");
         challengeOption.setAttribute('class','challenge',);
         challengeOption.setAttribute('value', challenge);
         challengeOption.textContent = index + 1 + '' + challenge;
-        challengeOption.onclick = setTally;
+        challengeOption.onclick = challengeAnwser;
         choicesEl.appendChild(challengeOption);
     });
-
-
-    //   challengesEl.innerHTML= (myChallenges[challengesIndex].challenges);
-    //   allChoicesArr=(myQuestions[questionIndex].choices);
-    //   for(var j=0;j< allChoicesArr.length ;j++)
-    //   {
-    //       answerButton = allChoicesArr[j];
-    //       var answer = document.getElementById('answer' + (j + 1));
-
-    //       answer.innerHTML = (j + 1) + '. ' + answerButton;
-    //   }
-}
-//cORRECT ANSWERS FUNCTION
-
-// Updates tally count on screen and sets tally count to client storage
-function setTally() {
-    isCorrect.textContent = tallyCounter + 10;
-    localStorage.setItem("tally", tallyCounter);
 }
 
 
-//END QUIZ FUNCTION
-function endChallenge() {
-    wordBlank.textContent = `~Our time is up!~`;
-    tally++
-    commenceBtn.disabled = false;
-    setTally()
-}
-if (hourglassCount === 0) {
-    // Clears interval
-    clearInterval(hourglass);
+//CORRECT ANSWERS FUNCTION
+function challengeAnwser() {
+     // check if user guessed wrong
+  if (this.value !== challenges[presentChallengeIndex].answer) {
+    // subtraft counter
+    time -= 15;
+
+    if (time < 0) {
+      time = 0;
+    }
+    // dynamically display hourglass counter
+    counterEl.textContent = time;
+
+    // was the challenge correct/wrong
+    feedbackEl.textContent = "Incorrect!";
+  } else {
+    feedbackEl.textContent = "Correct!";
+  }
+
+  // flash right/wrong feedback on page for half a second
+  feedbackEl.setAttribute("class", "feedback");
+  setTimeout(function() {
+    feedbackEl.setAttribute("class", "feedback hide");
+  }, 1000);
+
+  // increment index to next challenge
+  presentChallengeIndex++;
+
+  // end challenge when all challenges are complete
+  if (presentChallengeIndex === challenges.length) {
     endChallenge();
+  } else {
+    readChallenges();
+  }
 }
-//TIMER FUNCTION
 
-// var hourglassFunction = () => {
-//     document.getElementById('hourglass').innerHTML = `${hourglass}`
-//     hourglass -= 1
+//END CHALLENGE FUNCTION
+function endChallenge() {
+ // end counter
+ clearInterval(counterId);
+ 
+ // render end challenge page
+ var endChallengeEl = document.getElementById("end-challenge");
+ endChallengeEl.removeAttribute("class");
 
-//     if (hourglass === 0) {
-//         document.getElementById(`todo`).innerHTML = `<h3>~Our time is up!~</h3>`
-//     }
-// }
-// var revealTally = () => {
-//     document.getElementById(`tally`).innerHTML = `${tally}`
-// };
-// function hourglassFunction() {
-//     // Sets timer
-//     hourglass = setInterval(function () {
-//         hourglassCount--;
-//         hourglassElement.textContent = hourglassCount;
-//         if (timerCount >= 0) {
-//             // Tests if win condition is met
-//             if (isCorrect && hourglassCount > 0) {
-//                 // Clears interval and stops timer
-//                 clearInterval(hourglass);
-//                 endChallenge();
-//             }
-//         }
-//         // Tests if time has run out
-//         if (hourglassCount === 0) {
-//             // Clears interval
-//             clearInterval(hourglass);
-//             endChallenge();
-//         }
-//         document.getElementById('hourglass').innerHTML = `${hourglass}`
-//         hourglass -= 2
+ // display final tally
+ var challengeTallyEl = document.getElementById("challenge-tally");
+challengeTallyEl.textContent = time;
 
-//         if (hourglassCount === 0) {
-//             document.getElementById(`todo`).innerHTML = `<h3>~Our time is up!~</h3>`
-//         }
-//     }, 1000);
-// };
-//   OOR...
-//   if (hourglassCount === 0) {
-//     return;
-//   }
-//display highScore function
+ // hide questions section
+ challengesEl.setAttribute("class", "hide");
+}
 
-//save highScore function
+//COUNTER FUNCTION
+function hourglassFunction() {  
+  hourglass--;
+  counterEl.textContent = hourglass;
+
+  if (hourglass <= 0) {
+    endChallenge();
+  }
+}
+
+//SAVE HIGH SCORE FUNCTION
+//get initials from id="user-itials"
+function saveChallengeTally() {
+
+}
+
+// ENTER INITIALS FUNCTION
+//
+function initialsSubmit() {
+
+}
+
 
 commenceBtn.onclick = commenceChallenge;
+submitEl.onclick = saveChallengeTally;

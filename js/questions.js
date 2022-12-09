@@ -1,7 +1,7 @@
 var challenges = [
     {
         challenge: 'What would the hex-code for black be?',
-        choices: ['#FFFFFF', '#000000', '#00FF00', '0000FF'],
+        choices: ['#FFFFFF', '#000000', '#00FF00', '#0000FF'],
         answer: '#FFFFFF'
     },
     {
