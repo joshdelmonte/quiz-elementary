@@ -5,7 +5,7 @@ var challengeCounter = challenges.length;
 
 
 var challengesEl = document.getElementById(`challenges`);
-var choicesEl = document.getElementById(`choices-div`);
+var choicesEl = document.getElementById(`choices`);
 var submitEl = document.getElementById(`submit-btn`);
 var commenceBtn = document.getElementById("commence-btn");
 
@@ -44,7 +44,8 @@ function readChallenges() {
 
     //loop over challenges
     presentChallenge.challenge.forEach(function(challenge, index) {
-        challengeOption.setAttribute('class','challenge');
+        var challengeOption = document.createElement("button");
+        challengeOption.setAttribute('class','challenge',);
         challengeOption.setAttribute('value', challenge);
         challengeOption.textContent = index + 1 + '' + challenge;
         challengeOption.onclick = setTally;
