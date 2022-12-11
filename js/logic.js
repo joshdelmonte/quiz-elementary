@@ -11,7 +11,7 @@ var commenceBtn = document.getElementById("commence-btn");
 var counterEl = document.getElementById('hourglass')
 
 
-var hourglass = 0;
+var hourglass = 30;
 var tally = 0;
 var presentChallenge = 0;
 var hourglassCount;
