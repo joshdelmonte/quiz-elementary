@@ -16,7 +16,7 @@ var challenges = [
     },
     {
         challenge: 'Which would be considered a number array',
-        choices: ['1, 2, 3, 4', '"A","B","K","P"', '12345', 'Curmudgin'],
+        choices: ['1, 2, 3, 4', '"A","B","K","P"', '12345', 'Curmudgeon'],
         answer: '1, 2, 3, 4'
     },
     {
