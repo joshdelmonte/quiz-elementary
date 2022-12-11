@@ -1,27 +1,27 @@
 var challenges = [
     {
         challenge: 'What would the hex-code for black be?',
-        choices: ['#FFFFFF', '#000000', '#00FF00', '#0000FF'],
-        answer: '#FFFFFF'
+        choices: ['(a)#FFFFFF', '(b)#000000', '(c)#00FF00', '(d)#0000FF'],
+        answer: 'a'
     },
     {
         challenge: 'What type of code would a Boolean be?',
-        choices: ['Truthy', 'Number', 'String', 'Fooly Cooly'],
-        answer: ['Truthy']
+        choices: ['(a)Truthy', '(b)Number', '(c)String', '(d)Fooly Cooly'],
+        answer: ['a']
     },
     {
         challenge: 'What will the following line of code produce?: console.log("Hello" + "_" + "World")',
-        choices: ['Hellow_World', 'Hello World', 'HelloWorld', 'henlofrend'],
-        answer: 'Hello_World'
+        choices: ['(a)Hellow_World', '(b)Hello World', '(c)HelloWorld', '(d)henlofrend'],
+        answer: 'a'
     },
     {
         challenge: 'Which would be considered a number array',
-        choices: ['1, 2, 3, 4', '"A","B","K","P"', '12345', 'Curmudgeon'],
-        answer: '1, 2, 3, 4'
+        choices: ['(a)1, 2, 3, 4', '(b)"A","B","K","P"', '(c)12345', '(d)Curmudgeon'],
+        answer: 'a'
     },
     {
         challenge: 'Is this not a pipe?)',
-        choices: ['No it is not','Yes it is'],
-        answer: 'No it is not'
+        choices: ['(a)No it is not','(b)Yes it is'],
+        answer: 'a'
     },
 ]

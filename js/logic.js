@@ -51,14 +51,14 @@ function readChallenges() {
         challengeOption.setAttribute('class','challenge',);
         challengeOption.setAttribute('value', challenge);
         challengeOption.textContent = index + 1 + '' + challenge;
-        challengeOption.onclick = challengeAnwser;
+        challengeOption.onclick = challengeAnswer;
         choicesEl.appendChild(challengeOption);
     });
 }
 
 
 //CORRECT ANSWERS FUNCTION
-function challengeAnwser() {
+function challengeAnswer() {
      // check if user guessed wrong
   if (this.value !== challenges[presentChallengeIndex].answer) {
     // subtraft counter
