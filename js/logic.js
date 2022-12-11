@@ -8,8 +8,8 @@ var challengesEl = document.getElementById(`challenges`);
 var choicesEl = document.getElementById(`choices`);
 var submitEl = document.getElementById(`submit-btn`);
 var commenceBtn = document.getElementById("commence-btn");
-var counterEl = document.getElementById('hourglass')
-
+var counterEl = document.getElementById('hourglass');
+var feedbackEl =  document.getElementById("feedback");
 
 var hourglass = 30;
 var tally = 0;
@@ -60,12 +60,13 @@ function readChallenges() {
 //CORRECT ANSWERS FUNCTION
 function challengeAnswer() {
      // check if user guessed wrong
+
   if (this.value !== challenges[presentChallengeIndex].answer) {
     // subtraft counter
     time -= 1;
 
     if (time < 0) {
-      time = 0;
+      time = 5;
     }
     // dynamically display hourglass counter
     counterEl.textContent = time;
