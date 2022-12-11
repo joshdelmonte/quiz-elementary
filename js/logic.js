@@ -62,7 +62,7 @@ function challengeAnwser() {
      // check if user guessed wrong
   if (this.value !== challenges[presentChallengeIndex].answer) {
     // subtraft counter
-    time -= 15;
+    time -= 1;
 
     if (time < 0) {
       time = 0;
