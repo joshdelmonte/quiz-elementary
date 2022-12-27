@@ -161,11 +161,11 @@ function initialsSubmit() {
     var newScore = JSON.stringify(allScores);
     localStorage.setItem("allScores", newScore);
     //next page
-    window.location.replace("./highscores.html");
+    window.location.replace("./results.html");
   }
 }
 
 
 commenceBtn.onclick = commenceChallenge;
-submitEl.onclick = saveChallengeTally;
+submitEl.onclick = initialsSubmit;
 
